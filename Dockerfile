@@ -16,4 +16,7 @@ RUN rm /tmp/kafka_"$SCALA_VERSION"-"$KAFKA_VERSION".tgz
 EXPOSE 9092
 
 COPY start_kafka.sh /opt/kafka_"$SCALA_VERSION"-"$KAFKA_VERSION"/
-CMD ["/opt/kafka_"$SCALA_VERSION"-"$KAFKA_VERSION"/start_kafka.sh"]
+
+WORKDIR $KAFKA_HOME
+
+CMD ["./start_kafka.sh"]
